@@ -1,3 +1,4 @@
+# author Vamsi
 import json
 import pathlib
 
@@ -11,6 +12,13 @@ dag = DAG(
     dag_id="download_rocket_launches",
     start_date=airflow.utils.dates.days_ago(14),
     schedule_interval=None,
+)
+
+download_launches = BashOperator(
+    task_id="download_launches",
+    bash_commands="curl -o /tmp/launches.json "
+                  "'https://launchlibrary.net/1.4/launch?next=5&mode=verbose'",
+    dag=dag,
 )
 
 
@@ -32,13 +40,6 @@ def _get_pictures():
 get_pictures = PythonOperator(
     task_id="get_pictures",
     python_callable=_get_pictures(),
-    dag=dag,
-)
-
-download_launches = BashOperator(
-    task_id="download_launches",
-    bash_commands="curl -o /tmp/launches.json "
-                  "'https://launchlibrary.net/1.4/launch?next=5&mode=verbose'",
     dag=dag,
 )
 
