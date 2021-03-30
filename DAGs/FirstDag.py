@@ -18,8 +18,7 @@ dag = DAG(
 
 download_launches = BashOperator(
     task_id="download_launches",
-    bash_commands="curl -o /tmp/launches.json "
-                  "'https://launchlibrary.net/1.4/launch?next=5&mode=verbose'",
+    bash_commands="curl -o /tmp/launches.json 'https://launchlibrary.net/1.4/launch?next=5&mode=verbose'",
     dag=dag,
 )
 
