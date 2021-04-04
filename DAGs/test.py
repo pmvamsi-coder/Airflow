@@ -13,13 +13,13 @@ dag = DAG(
 
 t1 = BashOperator(
     task_id="print date",
-    bash_commands="echo Hellow world",
+    bash_command="echo Hellow world",
     dag=dag,
 )
 
 t2 = BashOperator(
     task_id="print date",
-    bash_commands="echo Hellow world",
+    bash_command="echo Hellow world",
     dag=dag,
 )
 
