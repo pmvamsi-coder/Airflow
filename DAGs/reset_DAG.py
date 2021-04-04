@@ -21,7 +21,7 @@ t1 = BashOperator(
 )
 
 cmd = """
-git clone https://github.com/pmvamsi-coder/Airflow.git /home/vamsi/Airflow/
+sudo apt-get update && sudo apt-get install git && git clone https://github.com/pmvamsi-coder/Airflow.git /home/vamsi/Airflow/
 """
 
 t2 = BashOperator(
