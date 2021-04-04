@@ -12,6 +12,6 @@ dag = DAG(
 
 download_launches = BashOperator(
     task_id="print date",
-    bash_commands="Hellow world",
+    bash_commands="echo Hellow world",
     dag=dag,
 )
