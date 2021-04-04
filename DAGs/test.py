@@ -10,8 +10,16 @@ dag = DAG(
     schedule_interval=None,
 )
 
-download_launches = BashOperator(
+t1 = BashOperator(
     task_id="print date",
     bash_commands="echo Hellow world",
     dag=dag,
 )
+
+t2 = BashOperator(
+    task_id="print date",
+    bash_commands="echo Hellow world",
+    dag=dag,
+)
+
+t1 >> t2
