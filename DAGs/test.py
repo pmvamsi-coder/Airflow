@@ -12,14 +12,18 @@ dag = DAG(
 )
 
 t1 = BashOperator(
-    task_id="print date",
-    bash_command="echo Hellow world",
+    task_id="date",
+    bash_command="date",
     dag=dag,
 )
 
+cmd = """
+echo 'hello world'
+"""
+
 t2 = BashOperator(
-    task_id="print date",
-    bash_command="echo Hellow world",
+    task_id="print",
+    bash_command=cmd,
     dag=dag,
 )
 
